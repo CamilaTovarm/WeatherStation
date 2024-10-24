@@ -30,7 +30,7 @@ namespace WeatherStation.Context
             modelBuilder.Entity<Sensors>().HasOne(e => e.UnitMeasurement).WithMany().HasForeignKey(e => e.UnitMeasurementId);
             modelBuilder.Entity<Stations>().HasOne(e => e.Users).WithMany().HasForeignKey(e => e.UserId);
             modelBuilder.Entity<Weather>().HasOne(e => e.Stations).WithMany().HasForeignKey(e => e.StationId);
-
+            modelBuilder.Entity<Weather>().HasOne(e => e.Sensors).WithMany().HasForeignKey(e => e.SensorId);
 
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes()
             .SelectMany(e => e.GetForeignKeys()))
