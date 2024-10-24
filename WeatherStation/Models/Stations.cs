@@ -2,13 +2,15 @@
 
 namespace WeatherStation.Models
 {
-    public class Users
+    public class Stations
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int StationId { get; set; }
+        public Users Users { get; set; }
         public int UserId { get; set; }
-        public int PersonId { get; set; }
-        public int Username { get; set; }
-        public string Password { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public string Altitude { get; set; }
         public DateTime CreateDate { get; set; }
         public bool State { get; set; }
     }
